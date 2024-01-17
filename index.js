@@ -1,31 +1,56 @@
 const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
 
-    function makeGreen() {
-      const p = document.querySelector('p');
-      p.style.color = '#BADA55';
-      p.style.fontSize = '50px';
-    }
+function makeGreen() {
+    const p = document.querySelector('p');
+    p.style.color = '#BADA55';
+    p.style.fontSize = '50px';
+}
 
-    // Regular
+// Regular
+console.log('Hello')
 
-    // Interpolated
+// Interpolated
+console.log('How are you %s?', 'dude')
 
-    // Styled
+// Styled
+console.log('%c This is some great text', 'font-size: 18px; background: lightblue;')
 
-    // warning!
+// warning!
+console.warn('Oh noo')
 
-    // Error :|
+// Error :|
+console.error('Oops')
 
-    // Info
+// Info
+console.info('this is a fun fact');
 
-    // Testing
+// Testing
+console.assert(1 === 2, 'That is wrong!')
 
-    // clearing
+// clearing
+console.clear()
 
-    // Viewing DOM Elements
+// Viewing DOM Elements
+const p = document.querySelector('p')
+console.log(p)
+console.dir(p)
 
-    // Grouping together
+// Grouping together
+dogs.forEach(dog => {
+    console.group(`${dog.name}`)
+    console.log(`This is ${dog.name}`)
+    console.groupEnd(`${dog.name}`)
+})
 
-    // counting
+// counting
+console.count('Wes')
 
-    // timing
+// timing
+console.time('fetch dogs')
+fetch('https://api.github.com/users/wesbos')
+  .then(data => data.json())
+  .then(data => {
+    console.timeEnd('fetch dogs');
+    console.log(data);
+  });
+console.table(dogs)
